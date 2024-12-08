@@ -1,9 +1,9 @@
-import Image from "next/image";
+
 import HeroSection from "./components/hero";
 import FeaturedProducts from "./components/featured";
 import Latest from "./components/latest";
 import LatestBlog from "./components/blog";
-import Footer from "./components/footer";
+
 
 
 
