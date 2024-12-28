@@ -1,10 +1,8 @@
 import { RxEnvelopeClosed } from "react-icons/rx";
 import { PiPhoneCallBold } from "react-icons/pi";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { FiUser } from "react-icons/fi";
-import { CiHeart } from "react-icons/ci";
-import { FiShoppingCart } from "react-icons/fi";
-import { CiSearch } from "react-icons/ci";
+import { FiShoppingCart, FiUser } from "react-icons/fi";
+import { CiSearch, CiHeart  } from "react-icons/ci";
 
 export default function Header() {
     return (
@@ -78,7 +76,7 @@ export default function Header() {
 
                {/* Navbar Links */}
 <div className="hidden sm:flex items-center space-x-4 ml-8">
-<span className="text-[#FB2E86] font-[Lato] text-sm md:text-base hover:text-[#e0336a] cursor-pointer">
+<span className="text-[#0D0E43] font-[Lato] text-sm md:text-base hover:text-[#e0336a] cursor-pointer">
 Home
 </span>
 <span className="text-[#0D0E43] font-[Lato] text-sm md:text-base hover:text-[#e03333] cursor-pointer">

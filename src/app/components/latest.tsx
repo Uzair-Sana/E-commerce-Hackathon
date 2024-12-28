@@ -7,13 +7,13 @@ export default function Latest() {
         <h1 className="text-3xl font-bold text-center mb-8">Latest Products</h1>
   
         {/* Static Navigation */}
-        <div className="flex justify-center space-x-8 text-[#151875]">
-          <a href="#" className="text-[#FB4997] font-semibold">
+        <div className="flex justify-center space-x-8 text-[#151875] font-normal">
+          <a href="" className="hover:text-[#FB4997]">
             New Arrival
           </a>
-          <a href="#" className="hover:text-[#FB4997]">Best Seller</a>
-          <a href="#" className="hover:text-[#FB4997]">Featured</a>
-          <a href="#" className="hover:text-[#FB4997]">Special Offer</a>
+          <a href="" className="hover:text-[#FB4997]">Best Seller</a>
+          <a href="" className="hover:text-[#FB4997]">Featured</a>
+          <a href="" className="hover:text-[#FB4997]">Special Offer</a>
         </div>
   
         {/* Static Grid with 6 Cards */}
@@ -76,7 +76,7 @@ export default function Latest() {
           <div className="border rounded-lg shadow-md p-4 bg-[#f7f7f7]">
             <div className="w-360 h-270 mx-auto">
               <img
-                src="/latest6.png"
+                src="/latest4.png"
                 alt="Comfort Handy Craft"
                 className="w-full h-250 object-cover rounded-t-lg mb-4"
               />

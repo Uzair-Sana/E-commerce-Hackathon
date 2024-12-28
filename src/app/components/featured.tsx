@@ -6,7 +6,7 @@ const FeaturedProducts = () => {
       name: "Cantilever chair",
       code: "Code - Y523201",
       price: "$42.00",
-      image: "/feature1.png", // Replace with actual image paths
+      image: "/feature1.png",
     },
     {
       name: "Cantilever chair",
@@ -59,13 +59,13 @@ const FeaturedProducts = () => {
                 </p>
               </div>
               {/* Optional hover overlay effect */}
-              {/* 
-              <div className="absolute inset-0 bg-purple-500 text-white opacity-0 hover:opacity-100 flex items-center justify-center rounded-xl transition duration-300">
+ 
+              {/* <div className="absolute inset-0 bg-purple-500 text-white opacity-0 hover:opacity-100 flex items-center justify-center rounded-xl transition duration-300">
                 <button className="py-2 px-4 bg-white text-purple-500 font-bold rounded-md shadow-md">
                   View Details
                 </button>
-              </div> 
-              */}
+              </div>  */}
+              
             </div>
           ))}
         </div>

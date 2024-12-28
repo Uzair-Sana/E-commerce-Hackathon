@@ -12,6 +12,7 @@ const slides = [
     buttonText: "Shop Now",
     chairImage: "/chair.png", // Replace with the correct path
     lampImage: "/lamp.png", // Replace with the correct path
+    discountText: "50%"
   },
   {
     title: "Modern Chair Designs for Your Home",
@@ -20,6 +21,7 @@ const slides = [
     buttonText: "Shop Now",
     chairImage: "/chair3.png", // Replace with another chair image
     lampImage: "/lamp.png", // Replace with another lamp image
+    discountText: "30%"
   },
   {
     title: "Elegant Furniture for Every Space",
@@ -28,6 +30,7 @@ const slides = [
     buttonText: "Shop Now",
     chairImage: "/chair2.png", // Replace with another chair image
     lampImage: "/lamp.png", // Replace with another lamp image
+    discountText: "20%"
   },
 ];
 
@@ -47,10 +50,10 @@ function HeroSection() {
   const current = slides[currentSlide];
 
   return (
-    <section className="relative bg-purple-50 py-10 md:py-20 px-5 md:px-20 flex flex-col md:flex-row items-center justify-between overflow-hidden">
+    <section className="relative bg-purple-50 py-10 md:py-20 px-5 md:px-20 flex flex-col md:flex-row items-center justify-between ">
       {/* Left Column: Lamp */}
       <div className="md:w-1/4 flex justify-center items-start relative">
-        <div className="absolute top-[-350px] left-[-40px] z-10">
+        <div className="absolute top-[-300px] left-[-30px] z-10">
           <Image
             src={current.lampImage}
             alt="Lamp"
@@ -91,11 +94,11 @@ function HeroSection() {
             className="object-contain w-full h-auto"
           />
         </div>
-        {/* Discount Badge (if needed) */}
-        {/*} <div className="absolute top-10 right-5 bg-gradient-to-r from-blue-400 to-blue-600 text-white text-xs font-medium py-2 px-4 rounded-full">
+        {/* Discount Badge */}
+         <div className="absolute top-10 right-5 bg-gradient-to-r from-blue-400 to-blue-600 text-white text-xs font-medium py-2 px-4 rounded-full">
           {current.discountText} 
           
-        </div> */}
+        </div> 
       </div>
 
       {/* Navigation Dots */}
