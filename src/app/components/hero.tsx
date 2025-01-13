@@ -10,8 +10,8 @@ const slides = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.",
     buttonText: "Shop Now",
-    chairImage: "/chair.png", // Replace with the correct path
-    lampImage: "/lamp.png", // Replace with the correct path
+    chairImage: "/chair.png", 
+    lampImage: "/lamp.png", 
     discountText: "50%"
   },
   {
@@ -19,8 +19,8 @@ const slides = [
     description:
       "Discover the latest modern furniture trends to elevate your living space.",
     buttonText: "Shop Now",
-    chairImage: "/chair3.png", // Replace with another chair image
-    lampImage: "/lamp.png", // Replace with another lamp image
+    chairImage: "/chair3.png", 
+    lampImage: "/lamp.png", 
     discountText: "30%"
   },
   {
@@ -28,8 +28,8 @@ const slides = [
     description:
       "Bring timeless elegance to your home with our exclusive furniture collection.",
     buttonText: "Shop Now",
-    chairImage: "/chair2.png", // Replace with another chair image
-    lampImage: "/lamp.png", // Replace with another lamp image
+    chairImage: "/chair2.png", 
+    lampImage: "/lamp.png", 
     discountText: "20%"
   },
 ];

@@ -1,114 +1,212 @@
-import { RxEnvelopeClosed } from "react-icons/rx";
-import { PiPhoneCallBold } from "react-icons/pi";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import { FiShoppingCart, FiUser } from "react-icons/fi";
-import { CiSearch, CiHeart  } from "react-icons/ci";
+'use client';
 
-export default function Header() {
-    return (
-        <div>
-            {/* Header Container */}
-            <div className="h-[50px] w-full bg-[#7E33E0] flex items-center justify-between px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48 space-x-4">
-                {/* Left Section: Envelope and Phone */}
-                <div className="flex items-center space-x-4">
-                    {/* Envelope Icon and Email */}
-                    <div className="flex items-center space-x-2">
-                        <RxEnvelopeClosed className="w-4 h-4 text-white" />
-                        <span className="hidden sm:inline text-white font-[Josefin Sans] font-semibold text-sm md:text-base">
-                            mhhasanul@gmail.com
-                        </span>
-                    </div>
+import Link from "next/link";
+import { useState } from "react";
+import { 
+  MagnifyingGlassIcon, 
+  ShoppingCartIcon, 
+  HeartIcon, 
+  Bars3Icon, 
+  XMarkIcon 
+} from "@heroicons/react/24/outline";
+import TopBar from "./topbar";
 
-                    {/* Phone Icon and Number */}
-                    <div className="flex items-center space-x-2">
-                        <PiPhoneCallBold className="w-4 h-4 text-white" />
-                        <span className="hidden sm:inline text-white font-[Josefin Sans] font-semibold text-sm md:text-base">
-                            (12345)67890
-                        </span>
-                    </div>
-                </div>
+function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPagesDropdownOpen, setIsPagesDropdownOpen] = useState(false);
 
-                {/* Right Section: Language, Currency, Login, Wishlist, and Cart */}
-                <div className="flex items-center space-x-4">
-                    {/* English Dropdown */}
-                    <div className="hidden sm:flex items-center space-x-1">
-                        <span className="text-[#F1F1F1] font-[Josefin Sans] font-semibold text-sm md:text-base">
-                            English
-                        </span>
-                        <RiArrowDropDownLine className="w-4 h-4 text-white" />
-                    </div>
+  return (
+    <>
+      {/* Top Bar */}
+      <TopBar />
 
-                    {/* USD Dropdown */}
-                    <div className="hidden sm:flex items-center space-x-1">
-                        <span className="text-[#F1F1F1] font-[Josefin Sans] font-semibold text-sm md:text-base">
-                            USD
-                        </span>
-                        <RiArrowDropDownLine className="w-4 h-4 text-white" />
-                    </div>
+      {/* Main Header */}
+      <div className="w-full h-[80px] flex justify-center items-center border-b-2">
+        <div className="w-full max-w-[1200px] h-full flex justify-between items-center px-10">
+          {/* Left Section: Logo and Search Bar */}
+          <div className="flex items-center gap-8">
+            {/* Logo */}
+            <h1 className="text-3xl font-bold">Hekto</h1>
 
-                    {/* Login Section */}
-                    <div className="flex items-center space-x-1">
-                        <span className="hidden sm:inline text-[#F1F1F1] font-[Josefin Sans] font-semibold text-sm md:text-base">
-                            Login
-                        </span>
-                        <FiUser className="w-4 h-4 text-white" />
-                    </div>
-
-                    {/* Wishlist Section */}
-                    <div className="flex items-center space-x-1">
-                        <span className="hidden sm:inline text-[#F1F1F1] font-[Josefin Sans] font-semibold text-sm md:text-base">
-                            Wishlist
-                        </span>
-                        <CiHeart className="w-4 h-4 text-white" />
-                    </div>
-
-                    {/* Cart Icon */}
-                    <FiShoppingCart className="w-5 h-5 text-white" />
-                </div>
+            {/* Search Bar */}
+            <div className="hidden sm:flex items-center border rounded-md overflow-hidden bg-gray-100">
+              <input
+                type="text"
+                placeholder="What are you looking for?"
+                className="w-60 px-3 py-2 text-sm outline-none bg-transparent"
+              />
+              <button title="search bar" className="p-2 bg-[#FB2E86] text-white hover:bg-[#F94C9B] transition-colors">
+                <MagnifyingGlassIcon className="w-5 h-5" />
+              </button>
             </div>
+          </div>
 
-            {/* Navbar Container */}
-            <div className="w-full h-[60px] bg-white flex items-center px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
-                {/* Hekto Logo */}
-                <div className="text-[#0D0E43] font-[Josefin Sans] font-bold text-lg md:text-xl lg:text-2xl">
-                    Hekto
-                </div>
+          {/* Center Section: Navigation Links */}
+          <div className="hidden sm:flex items-center gap-x-8 ">
+            <ul className="flex gap-x-8 items-center">
+              <li>
+                <Link className="hover:text-[#FB2E86] transition-colors" href="/">
+                  Home
+                </Link>
+              </li>
+              <li className="relative z-10">
+                <button
+                  className="hover:text-[#FB2E86] transition-colors"
+                  onClick={() => setIsPagesDropdownOpen(!isPagesDropdownOpen)} // Toggle the Pages menu
+                >
+                  Pages
+                </button>
+                {isPagesDropdownOpen && (
+                  <ul className="absolute top-full mt-2 bg-white shadow-md rounded-md text-black text-sm">
+                    <li className="px-4 py-2 hover:bg-gray-100">
+                      <Link href="/cart">Cart</Link>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-100">
+                      <Link href="/ordercompleted">Order Completed</Link>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-100">
+                      <Link href="/about-us">About Us</Link>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-100">
+                      <Link href="/contact-us">Contact Us</Link>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-100">
+                      <Link href="/account">My Account</Link>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-100">
+                      <Link href="/faq">FAQ</Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li>
+                <Link className="hover:text-[#FB2E86] transition-colors" href="/blog">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-[#FB2E86] transition-colors" href="/shoplist">
+                  Shop
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-[#FB2E86] transition-colors" href="/contact-us">
+                Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-               {/* Navbar Links */}
-<div className="hidden sm:flex items-center space-x-4 ml-8">
-<span className="text-[#0D0E43] font-[Lato] text-sm md:text-base hover:text-[#e0336a] cursor-pointer">
-Home
-</span>
-<span className="text-[#0D0E43] font-[Lato] text-sm md:text-base hover:text-[#e03333] cursor-pointer">
-Pages
-</span>
-<span className="text-[#0D0E43] font-[Lato] text-sm md:text-base hover:text-[#e03333] cursor-pointer">
-Products
-</span>
-<span className="text-[#0D0E43] font-[Lato] text-sm md:text-base hover:text-[#e03333] cursor-pointer">
-Blog
-</span>
-<span className="text-[#0D0E43] font-[Lato] text-sm md:text-base hover:text-[#e03333] cursor-pointer">
-Shop
-</span>
-<span className="text-[#0D0E43] font-[Lato] text-sm md:text-base hover:text-[#e03333] cursor-pointer">
-Contact
-</span>
-</div>
+          {/* Right Section: Icons */}
+          <div className="hidden sm:flex items-center gap-x-6">
+            <Link href="/cart" className="hover:text-[#FB2E86] transition-colors flex items-center gap-1">
+              <ShoppingCartIcon className="w-5 h-5" />
+              <span>Cart</span>
+            </Link>
+            <Link href="/wishlist" className="hover:text-[#FB2E86] transition-colors flex items-center gap-1">
+              <HeartIcon className="w-5 h-5" />
+              <span>Wishlist</span>
+            </Link>
+          </div>
 
-
-                {/* Search Bar */}
-                <div className="flex items-center ml-auto">
-                    <input
-                        type="text"
-                        placeholder="Search"
-                        className="hidden md:inline-block w-[200px] lg:w-[300px] h-[40px] border border-[#aea6a6] px-4 text-sm md:text-base rounded-l"
-                    />
-                    <div className="w-[40px] h-[40px] bg-[#FB2E86] flex items-center justify-center rounded-r">
-                        <CiSearch className="w-5 h-5 text-white" />
-                    </div>
-                </div>
-            </div>
+          {/* Mobile Menu Toggle */}
+          <button
+            className="sm:hidden flex items-center"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <XMarkIcon className="w-6 h-6 text-black" />
+            ) : (
+              <Bars3Icon className="w-6 h-6 text-black" />
+            )}
+          </button>
         </div>
-    );
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="sm:hidden flex flex-col items-center px-4 py-2 border-t">
+          {/* Mobile Pages Dropdown */}
+          <button
+            className="hover:text-[#FB2E86] transition-colors"
+            onClick={() => setIsPagesDropdownOpen(!isPagesDropdownOpen)}
+          >
+            Pages
+          </button>
+          {isPagesDropdownOpen && (
+            <ul className="w-full text-center bg-white shadow-md rounded-md text-black text-sm">
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/cart">Cart</Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/ordercompleted">Order Completed</Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/about-us">About Us</Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/contact-us">Contact Us</Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/account">My Account</Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/faq">FAQ</Link>
+              </li>
+            </ul>
+          )}
+
+          {/* Mobile Navigation Links */}
+          <ul className="w-full text-center">
+            <li>
+              <Link className="block py-2 hover:text-[#FB2E86]" href="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="block py-2 hover:text-[#FB2E86]" href="/blog">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link className="block py-2 hover:text-[#FB2E86]" href="/shoplist">
+                Shop
+              </Link>
+            </li>
+            <li>
+              <Link className="block py-2 hover:text-[#FB2E86]" href="/account">
+                My Account
+              </Link>
+            </li>
+          </ul>
+
+          {/* Mobile Search Bar */}
+          <div className="flex items-center border rounded-md overflow-hidden bg-gray-100 px-4 py-2 mx-4 mt-4">
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-full px-3 py-2 text-sm outline-none bg-transparent"
+            />
+            <button title="mobile search bar" className="p-2 bg-[#FB2E86] text-white hover:bg-[#F94C9B] transition-colors">
+              <MagnifyingGlassIcon className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Mobile Cart and Wishlist */}
+          <div className="flex justify-around px-4 py-2 border-t">
+            <Link href="/cart" className="flex items-center gap-1 text-sm hover:text-[#FB2E86]">
+              <ShoppingCartIcon className="w-5 h-5" />
+              <span>Cart</span>
+            </Link>
+            <Link href="#" className="flex items-center gap-1 text-sm hover:text-[#FB2E86]">
+              <HeartIcon className="w-5 h-5" />
+              <span>Wishlist</span>
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
+
+export default Header;
