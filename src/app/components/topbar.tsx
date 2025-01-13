@@ -1,8 +1,7 @@
 import { RxEnvelopeClosed } from "react-icons/rx";
 import { PiPhoneCallBold } from "react-icons/pi";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { FiShoppingCart, FiUser } from "react-icons/fi";
-import { CiSearch, CiHeart  } from "react-icons/ci";
+import { FiUser } from "react-icons/fi";
 import Link from "next/link";
 
 export default function Topbar() {

@@ -9,10 +9,6 @@ import TrendingProducts from "./components/trending";
 import Discount from "./components/discount";
 import TopCategories from "./components/topCategories";
 import Newslater from "./components/newslater";
-import Topbar from "./components/topbar";
-
-
-
 
 export default function Home() {
   return (
